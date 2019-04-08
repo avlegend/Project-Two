@@ -8,13 +8,14 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/apiResults.css">
   <title>Home Page</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar-first">
     <div class="container">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="/profile">
         <img src="https://i.imgur.com/Aikj556.png?1" width="190px" height="70px">
       </a>
 
@@ -26,7 +27,7 @@
         <ul class="navbar-nav mr-auto">
           {{#if user}}
           <li class="nav-item">
-            <a class="nav-link" href="/profile">Welcome !</a>
+            <a class="nav-link" href="/profile" id="slogan"> Fantastic feasts and where to find them </a>
           </li>
           {{/if}}
         </ul>
@@ -116,6 +117,7 @@
   <script src="/js/index.js"></script>
   <script src="/js/signup.js"></script>
   <script src="/js/login.js"></script>
+  <script src="/js/apiResults.js"></script>
 </body>
 
 </html>

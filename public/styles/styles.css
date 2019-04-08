@@ -18,6 +18,9 @@ body{
 
 
 /* NAVBAR */
+#slogan{
+  margin-top: 12px;
+}
 
 .list-group-item {
   line-height: 2.5;
@@ -32,13 +35,17 @@ body{
   color: white !important;
 }
 
-/* SIGN-IN PAGE */
+/* SIGN-up PAGE */
 
-#carouselExampleIndicators{
-  width:704px
+#carouselExampleIndic{
+  width:704px;
 }
 
-#carousel-box{
+#a-image{
+  width:704px;
+}
+
+#carousel-main{
   margin-top:50px;
   z-index:1;
 }
@@ -61,6 +68,28 @@ padding:0 !important;
 text-align: center;
 color: #1B4118;
 }
-.footer-copyright{
-  
+
+/* PROFILE (SECOND PAGE) */
+.results{
+  margin-top{
+    50px;
+  }
 }
+
+#profile-pic{
+  margin-left:-200px !important;
+  z-index: 1;
+  position: static;
+}
+
+#searchbar{
+  z-index: 1000;
+  position: absolute;
+  margin-top: 300px;
+  margin-left: 400px;
+  padding: 10px;
+  background-color: white;
+  width: 500px;
+  text-align: center;
+}
+
