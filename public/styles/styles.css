@@ -1,3 +1,69 @@
+body{
+  background-color: #FFFADD !important;
+}
+
+.btn{
+  background-color: #418242  !important;
+  border: white !important;
+}
+
+#email{
+  background: white  !important;
+}
+
+#password{
+  background: white  !important;
+}
+
+
+
+/* NAVBAR */
+#slogan{
+  margin-top: 12px;
+}
+
 .list-group-item {
   line-height: 2.5;
+}
+
+#navbar-first{
+  background-color: #1B4118 !important;
+  padding:0;
+}
+
+.nav-link{
+  color: white !important;
+}
+
+/* SIGN-IN PAGE */
+
+#carouselExampleIndicators{
+  width:704px
+}
+
+#carousel-box{
+  margin-top:50px;
+  z-index:1;
+}
+
+/* LOG-IN */
+#log-in{
+  margin-top:50px;
+  z-index:2;
+}
+
+#form-control{
+  background-color: #1B4118 !important;
+}
+
+
+/* FOOTER */
+#footer-icons{
+margin-bottom:-60px !important;
+padding:0 !important;
+text-align: center;
+color: #1B4118;
+}
+.footer-copyright{
+  
 }
