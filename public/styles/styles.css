@@ -35,13 +35,17 @@ body{
   color: white !important;
 }
 
-/* SIGN-IN PAGE */
+/* SIGN-up PAGE */
 
-/* #carouselExampleIndicators{
-  width:704px
+#carouselExampleIndic{
+  width:704px;
 }
 
-#carousel-box{
+#a-image{
+  width:704px;
+}
+
+#carousel-main{
   margin-top:50px;
   z-index:1;
 } */
@@ -66,6 +70,10 @@ color: #1B4118;
 }
 
 /* PROFILE (SECOND PAGE) */
+.results{
+  margin-top: 50px;
+}
+
 #profile-pic{
   margin-left:-200px !important;
   z-index: 1;
