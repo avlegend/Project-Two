@@ -18,6 +18,9 @@ body{
 
 
 /* NAVBAR */
+#slogan{
+  margin-top: 12px;
+}
 
 .list-group-item {
   line-height: 2.5;
