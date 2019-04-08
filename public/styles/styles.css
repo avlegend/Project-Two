@@ -64,6 +64,22 @@ padding:0 !important;
 text-align: center;
 color: #1B4118;
 }
-.footer-copyright{
-  
+
+/* PROFILE (SECOND PAGE) */
+#profile-pic{
+  margin-left:-200px !important;
+  z-index: 1;
+  position: static;
 }
+
+#searchbar{
+  z-index: 1000;
+  position: absolute;
+  margin-top: 300px;
+  margin-left: 400px;
+  padding: 10px;
+  background-color: white;
+  width: 500px;
+  text-align: center;
+}
+
