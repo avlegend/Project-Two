@@ -66,10 +66,15 @@ body{
 
 /* FOOTER */
 #footer-icons{
+margin-top: 15px;
 margin-bottom:-60px !important;
 padding:0 !important;
 text-align: center;
 color: #1B4118;
+}
+
+footer{
+  background-color: #FFFADD ;
 }
 
 /* PROFILE (SECOND PAGE) */
@@ -79,18 +84,21 @@ color: #1B4118;
 }
 
 #profile-pic{
-  margin-left:-200px !important;
-  z-index: 1;
+  margin-left:-200px !important; 
+  margin-right:-150px !important; 
+  z-index: 10;
   position: static;
+  width: 2500px;
+  height: 1000px;
 }
 
 #searchbar{
+  color: white;
   z-index: 1000;
   position: absolute;
   margin-top: 100px;
   margin-left: 400px;
   padding: 10px;
-  background-color: white;
   width: 500px;
   text-align: center;
 }
