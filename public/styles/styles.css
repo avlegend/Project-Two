@@ -37,14 +37,14 @@ body{
 
 /* SIGN-IN PAGE */
 
-#carouselExampleIndicators{
+/* #carouselExampleIndicators{
   width:704px
 }
 
 #carousel-box{
   margin-top:50px;
   z-index:1;
-}
+} */
 
 /* LOG-IN */
 #log-in{

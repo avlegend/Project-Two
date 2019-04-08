@@ -1,6 +1,6 @@
 /* API Results*/
 .results {
-    
+    z-index: 1500;
     margin: 0 auto;
     padding-left: 1.75vw
 }
