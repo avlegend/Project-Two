@@ -64,5 +64,11 @@ module.exports = app => {
     req.logout();
     res.redirect("/");
   });
-  
+
+  // ************** Here we will connect the .get and .post **************
+  app.get("/api/recipe", (req, res) => {
+    db.Recipe.findAll({}).then((dbRecipe) => {
+      res.json(dbRecipe)
+    })
+  })
 };
