@@ -4,7 +4,7 @@ $("#search").on("submit", function (event) {
     var APIKey2 = "b95bb5225a3532d46ab9e25e313900b5";
     var appID = "179fac11";
     var recipe = $("#searchRecipe").val().trim();
-    var queryUrl2 = "https://api.edamam.com/search?q=" + recipe + "&app_id=" + appID + "&app_key=" + APIKey2 + "&from=0&to=9"
+    var queryUrl2 = "https://api.edamam.com/auto-completesearch?q=" + recipe + "&app_id=" + appID + "&app_key=" + APIKey2 + "&from=0&to=9"
     $.ajax({
         method: "GET",
         url: queryUrl2
