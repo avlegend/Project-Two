@@ -6,7 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+  <!-- JS file for autocomplete -->
+
+
+  <!-- CSS file for autocomplete-->
+  <link rel="stylesheet" href="/styles/easy-autocomplete.css">
+  <link rel="stylesheet" href="/styles/easy-autocomplete.themes.css">
   <link rel="stylesheet" href="/styles/styles.css">
   <link rel="stylesheet" href="/styles/apiResults.css">
   <title>Home Page</title>
@@ -55,8 +64,8 @@
 
 
 
-<!-- Footer -->
-<footer class="page-footer font-small cyan darken-3">
+  <!-- Footer -->
+  <footer class="page-footer font-small cyan darken-3">
 
     <!-- Footer Elements -->
     <div class="container">
@@ -114,10 +123,36 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
+
   <script src="/js/index.js"></script>
   <script src="/js/signup.js"></script>
   <script src="/js/login.js"></script>
   <script src="/js/apiResults.js"></script>
+  <script src="/js/jquery.easy-autocomplete.min.js"></script>
+  <script>
+    var options = {
+      data: ["Almond", "Asparagus", "Avocado crab boats", "Avocado salad", "Avocado toast", "Avocado tuna salad", "Apple pie", "Apple sauce", "Apple strudel", "Bacon cheddar deviled eggs", " Banana Bread", "Bean dip", "BBQ ribs", "BBQ", "Biscuits", "BLT", "Black bean tacos", "Borscht", "Bread", "Brisket", "Broccoli", "Brownie", "Buffalo wings", "Bundt cake", "Burrito", "Cake", "Candied Yams", "Carne Asada", "Carrot cake", "Carrot soup", "Casserole", "Ceasar salad", "Cheese pizza", "Cheesecake", "Chili", "Chocolate cake", "Chocolate chip cookies", "Cheeseburger", "Chicken pot pie", "Chicken Sandwich", "Chicken soup", "clam chowder", "Cobb Salad ", "Cornbread", "Corn chowder", "Corn on the cob", "Cottage cheese", "Cream cheese", "Crab Cake", "Dairy-free chocolate", "Dairy free", "Deviled Eggs", "Dessert", "Donut", "Dumplings and gravy", "enchilada", "Egg roll", "Eggplant", "English muffin", "Fajitas", "Falafel", "Filet mignon", "Fish fillet", "Gluten free", "Grits",
+        "Fondu", "Fruit", "Juice", "French toast", "French fries", "Granola", "Ice cream", "Italian meatballs", "Hamburger", "Ham", "Hummus", "Jam", "Jelly", "Grilled cheese Sandwich", "Gravy", "Guacamole", "Kale", "Ketchup ", "Key lime", "Jambalaya", "Jell-o",
+        "Lamb", "Lamb chops", "Lemon", "Lime pie", "Liver", "Lasagna", "Lobster", "Mac and Cheese", "Macarons", "Margarita", "Mashed potatoes", "Meatloaf", "Muffins", "Mustard",
+        "Nachos", "Oatmeal cookies", "Omellete", "Onion rings", "Orange", "Pancake", "Parmesan roasted broccoli", "Pasta", "Pea soup", "Peanut butter and jelly", "Pecan pie", "Pepperoni pizza", "Pho", "Pie", "Pizza", "Potatoes", "Popsicles", "Pork chops", "Pot Pie", "Pot stickers", "Potatoe skins", "Pound cake", "Pumpkin pie", "Quino", "Ramen", "Red velvet cake", "Ribs", "Rice vermicelli", "Raspberry", "Rice pilaf", "Roast beef", "Rum cake", "Salad", "Sandwich", "Smoked sausage", "Scrambeled Eggs", "Shami kebab", "Shrimp", "Sloppy joes", "Smoked salom", "Smoothie", "Spinach and kale smoothie", "Squash", "Spaghetti", "Sponge cake", "Spring Roll", "Soup", "Strawberry pie", "Stir fry", "Swedish meatballs", "Sweet Potato", "Sushi", "Strawberry", "Strawberry cake", "Tacos", "Tarter sauce", "Tater Tots", "Thai salad", "Thai noodles‎", "Tikka", "tofu", "Tomato soup", "Tomato chutney", "Tortilla", "Turkey", "Turkey and stuffing casserole", "Turkey chowder", "Unsweetened chocolate", "Upside-down cake", "Vietnamese noodles‎", "Vietnamese Sandwich", "Walnut", "Waffle", "Wheat tortilla", "Vegan cookies", "Vegan", "Vegetarian", "Yams", "Yogurt", "Zucchini", "zucchini bread", "Zuppa pavese"],
+      list: {
+        match: {
+          enabled: true
+        }
+      }
+    };
+
+    function hi() {
+      console.log('hello')
+    }
+
+    $("#searchRecipe").easyAutocomplete(options);
+
+  </script>
+
+
+
+
 </body>
 
 </html>
