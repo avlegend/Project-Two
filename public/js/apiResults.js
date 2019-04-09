@@ -20,7 +20,7 @@ $("#search").on("submit", function (event) {
             var index;
             
             var imgContainer = $("<div>").addClass("col-3 float-left resultImg")
-            var image = $("<img>").attr({ "src": imageUrl }).addClass("img-fluid")
+            var image = $("<img>").attr({ "src": imageUrl }).addClass("img-fluid recipeImg" + i)
             var title = $("<div>").addClass("title").append(label);
             var heart = $("<div>").addClass("heart").html('<a href=""><i class="far fa-heart"></i></a>')
             
@@ -32,7 +32,8 @@ $("#search").on("submit", function (event) {
                 imgContainer.append(image, title, heart);
                 $(".slide2").append(imgContainer)
             }
-            $(".img" + i).wrap("<a href = '" + linkUrl + "' target='_blank'></a>")
+            $(".recipeImg" + i).wrap("<a href = '" + linkUrl + "' target='_blank'></a>")
+            console.log(linkUrl)
                 //<div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/222/fff?text=1">
             //     < div class="title" >
             //         <h5>First slide label</h5>
