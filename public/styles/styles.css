@@ -40,17 +40,8 @@ body{
 
 /* SIGN-up PAGE */
 
-#carouselExampleIndic{
-  width:704px;
-}
-
 #a-image{
   width:704px;
-}
-
-#carousel-main{
-  margin-top:50px;
-  z-index:1;
 }
 
 /* LOG-IN */
@@ -66,32 +57,38 @@ body{
 
 /* FOOTER */
 #footer-icons{
+margin-top: 15px;
 margin-bottom:-60px !important;
 padding:0 !important;
 text-align: center;
 color: #1B4118;
 }
 
-/* PROFILE (SECOND PAGE) */
-.results{
-  margin-top:300px !important;
-  width: 100%;
+footer{
+  background-color: #FFFADD ;
 }
 
+/* PROFILE (SECOND PAGE) */
+.personalPage {
+  background: url("https://www.foodiesfeed.com/wp-content/uploads/2019/02/messy-pizza-on-a-black-table.jpg");
+  height: 100vh; 
+}
 #profile-pic{
-  margin-left:-200px !important;
-  z-index: 1;
+  margin-left:-200px !important; 
+  margin-right:-150px !important; 
+  z-index: 10;
   position: static;
+  width: 2500px;
+  height: 1000px;
 }
 
 #searchbar{
-  z-index: 1000;
-  position: absolute;
-  margin-top: 100px;
-  margin-left: 400px;
+  color: white;
+  margin: 0 auto;
   padding: 10px;
-  background-color: white;
   width: 500px;
   text-align: center;
 }
-
+.col-md-8 {
+  margin-top: 40px;
+}
