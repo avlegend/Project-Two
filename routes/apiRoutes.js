@@ -1,8 +1,9 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-const uuid = require('node-uuid');
-const crypto = require('crypto');
+const uuid = require("node-uuid");
+const crypto = require("crypto");
+const axios = require("axios");
 
 module.exports = app => {
   // Get all examples
@@ -68,7 +69,9 @@ module.exports = app => {
     res.redirect("/");
   });
 
-  app.get("/api/hound", (req, res) => {
+  
+
+  app.get("/api/hound/:query", (req, res) => {
 
 
     function generateAuthHeaders(clientId, clientKey, userId, requestId) {
@@ -113,7 +116,13 @@ module.exports = app => {
     };
 
     const myHeaders =  generateAuthHeaders("eT1NIPB2gSoL9yvc-cg1Pg==", "GDD42myRc-vD7_ZEBqG_7r_2dh2nZVjKBFcBEJuDrmYzGwBzTfWPl5Fm51-RHKLotgFbs2vBFnmf7_DM_8yj0Q==")
-    res.json(myHeaders);
+    axios({
+      url: `https://api.houndify.com/v1/text?query=${req.params.query}`,
+      method: "POST",
+      headers: myHeaders
+    }).then(response => {
+      res.json(response.data.AllResults[0]);
+    });
   })
 
 };

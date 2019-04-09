@@ -23,6 +23,8 @@ $("#search").on("submit", function (event) {
             var image = $("<img>").attr({ "src": imageUrl }).addClass("img-fluid recipeImg" + i)
             var title = $("<div>").addClass("title").append(label);
             var heart = $("<div>").addClass("heart").html('<a href=""><i class="far fa-heart"></i></a>')
+
+        
             
             if (i <= 3) {
                 imgContainer.append(image, title, heart);

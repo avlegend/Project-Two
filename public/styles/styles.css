@@ -54,6 +54,10 @@ body{
   background-color: #1B4118 !important;
 }
 
+#logPage{
+  height: 300px;
+}
+
 
 /* FOOTER */
 #footer-icons{
