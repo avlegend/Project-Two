@@ -5,6 +5,9 @@ $("#search").on("submit", function (event) {
     var appID = "179fac11";
     var recipe = $("#searchRecipe").val().trim();
     var queryUrl2 = "https://api.edamam.com/search?q=" + recipe + "&app_id=" + appID + "&app_key=" + APIKey2 + "&from=0&to=9"
+    //clear previous results
+    $(".slide1").empty();
+    $(".slide2").empty();
     $.ajax({
         method: "GET",
         url: queryUrl2
@@ -14,31 +17,31 @@ $("#search").on("submit", function (event) {
             var imageUrl = response.hits[i].recipe.image
             var label = $("<h5>").text(response.hits[i].recipe.label);
             var linkUrl = response.hits[i].recipe.url
-            var index
-            if(i===0 || i===3 || i===6) {
-                index = 0
-            }
-            else if(i===1 || i===4 || i===7) {
-                index = 1
-            }
-            else if(i===2 || i===5 || i===8) {
-                index = 2
-            }
-            var image = $("<img>").attr({"src": imageUrl}).addClass("d-block img" + i)
-            var title = $("<div>").addClass("title" + index).append(label);
-            var heart = $("<div>").addClass("heart" + index).html('<a href=""><i class="far fa-heart"></i></a>').attr("id", "favorite")
-
-            if (i <= 2) {
-                $(".slide1").append(image, title, heart)
-            }
-            else if (i <= 5) {
-                $(".slide2").append(image, title, heart)
-            }
-            else if (i <= 8) {
-                $(".slide3").append(image, title, heart)
-            }
-            $(".img" + i).wrap("<a href = '" + linkUrl + "' target='_blank'></a>")
+            var index;
             
+            var imgContainer = $("<div>").addClass("col-3 float-left resultImg")
+            var image = $("<img>").attr({ "src": imageUrl }).addClass("img-fluid recipeImg" + i)
+            var title = $("<div>").addClass("title").append(label);
+            var heart = $("<div>").addClass("heart").html('<a href="#"><i class="far fa-heart"></i></a>').attr("data-title", response.hits[i].recipe.label)
+            
+            if (i <= 3) {
+                imgContainer.append(image, title, heart);
+                $(".slide1").append(imgContainer);
+            }
+            else if (i <= 7) {
+                imgContainer.append(image, title, heart);
+                $(".slide2").append(imgContainer)
+            }
+            $(".recipeImg" + i).wrap("<a href = '" + linkUrl + "' target='_blank'></a>")
+            console.log(linkUrl)
+                //<div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/222/fff?text=1">
+            //     < div class="title" >
+            //         <h5>First slide label</h5>
+            //     </div >
+            //     <div class="heart">
+            //         <a href=""><i class="far fa-heart"></i></a>
+            //     </div>
+            // </div >
         }
 
     })

@@ -1,8 +1,9 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
+ var $exampleText = $(".heart").attr("data-title");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
+//let $favItem = $(".heart").attr("data-title");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -12,19 +13,19 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/favorites",
       data: JSON.stringify(example)
     });
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/favorites",
       type: "GET"
     });
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/favorites/" + id,
       type: "DELETE"
     });
   }
@@ -36,7 +37,7 @@ var refreshExamples = function() {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
         .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .attr("href", "/favorite/" + example.id);
 
       var $li = $("<li>")
         .attr({
@@ -65,8 +66,8 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    title: $exampleText.val().trim(),
+    //description: $exampleDescription.val().trim()
   };
 
   if (!(example.text && example.description)) {
