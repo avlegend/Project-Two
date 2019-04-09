@@ -5,6 +5,9 @@ $("#search").on("submit", function (event) {
     var appID = "179fac11";
     var recipe = $("#searchRecipe").val().trim();
     var queryUrl2 = "https://api.edamam.com/search?q=" + recipe + "&app_id=" + appID + "&app_key=" + APIKey2 + "&from=0&to=9"
+    //clear previous results
+    $(".slide1").empty();
+    $(".slide2").empty();
     $.ajax({
         method: "GET",
         url: queryUrl2

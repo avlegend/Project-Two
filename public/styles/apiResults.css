@@ -1,6 +1,12 @@
 .resultImg {
     position: relative;
 }
+.nextResult, .prevResult {
+    width: 25px;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    opacity: 1;
+}
 .title {
     color: white;
     position: absolute;
@@ -21,6 +27,7 @@
     text-align: center;
     font-size: 26px;
     right: 10px;
+    z-index: 2;
 }
 .heart a:hover {
     color: red;
