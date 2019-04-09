@@ -22,9 +22,7 @@ $("#search").on("submit", function (event) {
             var imgContainer = $("<div>").addClass("col-3 float-left resultImg")
             var image = $("<img>").attr({ "src": imageUrl }).addClass("img-fluid recipeImg" + i)
             var title = $("<div>").addClass("title").append(label);
-            var heart = $("<div>").addClass("heart").html('<a href=""><i class="far fa-heart"></i></a>')
-
-        
+            var heart = $("<div>").addClass("heart").html('<a href="#"><i class="far fa-heart"></i></a>').attr("data-title", response.hits[i].recipe.label)
             
             if (i <= 3) {
                 imgContainer.append(image, title, heart);

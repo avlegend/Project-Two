@@ -124,5 +124,24 @@ module.exports = app => {
       res.json(response.data.AllResults[0]);
     });
   })
+  // ************** Here we will connect the .get and .post **************
+  app.get("/api/favorites", (req, res) => {
+    db.Favorite
+    .findAll({})
+    .then((dbFavorite) => {
+      res.json(dbFavorite);
+    });
+  });
+
+
+  // POST to create a new recipe
+  //connects to module favorite.js and keep keys identical
+  app.post("/api/favorites", (req, res) => {
+    db.Favorite
+      .create({
+        title: req.body.title,
+        UserId: req.user.id
+      }).then(data => res.json(data));
+  });
 
 };
