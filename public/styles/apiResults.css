@@ -1,5 +1,6 @@
 .resultImg {
     position: relative;
+    border: 2px solid black
 }
 .nextResult, .prevResult {
     width: 25px;
