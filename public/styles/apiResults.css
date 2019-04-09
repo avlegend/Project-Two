@@ -1,37 +1,25 @@
-/* API Results*/
-.d-block {
-    /* width: 32vw; */
-    float: left;
-    border: 4px solid black
+.resultImg {
+    position: relative;
+    border: 2px solid black
 }
-/* .img1, .img2, .img3 {
-    border-right: 0px;
-} */
-.img0 {
-    width:32vw;
-    border-right: 2px solid black;
+.nextResult, .prevResult {
+    width: 25px;
 }
-.img1 {
-    width:32vw;
-    border-left: 2px solid black;
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    opacity: 1;
 }
-.img2 {
-    width:32vw;
-    border-left: 2px solid black;
-}
-.title0, .title1, .title2 {
+.title {
     color: white;
     position: absolute;
     background: rgb(0, 0, 0, .7);
-    width: 32vw;
+    width: 22vw;
     bottom: 40px;
     text-align: center;
     padding-top: 5px;
 }
-
-.heart0 a, .heart1 a, .heart2 a {
+.heart a {
     color: white;
-    position: relative;
+    position: absolute;
     width: 40px;
     height: 40px;
     background: rgb(0, 0, 0, .7);
@@ -39,26 +27,9 @@
     border-radius: 50%;
     text-align: center;
     font-size: 26px;
-}
-.heart0 a{
-    left: 27vw;
-}
-.title1{
-    left: 32vw;
-}
-.heart1 a{
-    left: 59vw;
-}
-.title2{
-    left: 64vw;
-}
-.heart2 a{
-    left: 91vw;
+    right: 10px;
     z-index: 2;
 }
-#image {
-    position: relative;
-}
-.heart0 a:hover, .heart1 a:hover, .heart2 a:hover {
+.heart a:hover {
     color: red;
 }
