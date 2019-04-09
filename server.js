@@ -44,6 +44,8 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
+// keep true when changing models. keep false when testing
+// ******************THIS IS IMPORTANT!!!!!
 const syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
