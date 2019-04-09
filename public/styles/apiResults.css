@@ -1,9 +1,4 @@
 /* API Results*/
-.results {
-    
-    margin: 0 auto;
-    padding-left: 1.75vw
-}
 .d-block {
     /* width: 32vw; */
     float: left;
@@ -13,12 +8,15 @@
     border-right: 0px;
 } */
 .img0 {
+    width:32vw;
     border-right: 2px solid black;
 }
 .img1 {
+    width:32vw;
     border-left: 2px solid black;
 }
 .img2 {
+    width:32vw;
     border-left: 2px solid black;
 }
 .title0, .title1, .title2 {
@@ -30,9 +28,10 @@
     text-align: center;
     padding-top: 5px;
 }
+
 .heart0 a, .heart1 a, .heart2 a {
     color: white;
-    position: absolute;
+    position: relative;
     width: 40px;
     height: 40px;
     background: rgb(0, 0, 0, .7);
