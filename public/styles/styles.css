@@ -30,9 +30,12 @@ body{
   background-color: #1B4118 !important;
   padding:0;
 }
-
+.nav-item{
+  z-index:1000 !important;
+}
 .nav-link{
   color: white !important;
+  z-index:1000;
 }
 
 /* SIGN-up PAGE */
@@ -70,9 +73,10 @@ color: #1B4118;
 }
 
 /* PROFILE (SECOND PAGE) */
-.results{
-  margin-top: 50px;
-}
+/* .results{
+  margin-top:300px !important;
+  width: 100%;
+} */
 
 #profile-pic{
   margin-left:-200px !important;
@@ -83,7 +87,7 @@ color: #1B4118;
 #searchbar{
   z-index: 1000;
   position: absolute;
-  margin-top: 300px;
+  margin-top: 100px;
   margin-left: 400px;
   padding: 10px;
   background-color: white;
