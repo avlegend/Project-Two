@@ -26,7 +26,7 @@ $("#search").on("submit", function (event) {
             }
             var image = $("<img>").attr({"src": imageUrl}).addClass("d-block img" + i)
             var title = $("<div>").addClass("title" + index).append(label);
-            var heart = $("<div>").addClass("heart" + index).html('<a href=""><i class="far fa-heart"></i></a>')
+            var heart = $("<div>").addClass("heart" + index).html('<a href=""><i class="far fa-heart"></i></a>').attr("id", "favorite")
 
             if (i <= 2) {
                 $(".slide1").append(image, title, heart)

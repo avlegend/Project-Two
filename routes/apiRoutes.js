@@ -67,9 +67,20 @@ module.exports = app => {
   });
 
   // ************** Here we will connect the .get and .post **************
-  app.get("/api/recipe", (req, res) => {
-    db.Recipe.findAll({}).then((dbRecipe) => {
-      res.json(dbRecipe)
-    })
-  })
+  app.get("/api/favorites", (req, res) => {
+    db.Favorite.findAll({}).then((dbFavorite) => {
+      res.json(dbFavorite)
+    });
+  });
+
+
+  // POST to create a new recipe
+  app.post("/api/favorite", (req, res) => {
+    db.Favorite
+      .create({
+        name: req.body.name,
+        UserId: 1
+      }).then(data => res.json(data));
+  });
+
 };
