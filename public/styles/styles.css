@@ -51,7 +51,7 @@ body{
 #carousel-main{
   margin-top:50px;
   z-index:1;
-}
+} */
 
 /* LOG-IN */
 #log-in{
@@ -78,10 +78,10 @@ footer{
 }
 
 /* PROFILE (SECOND PAGE) */
-.results{
+/* .results{
   margin-top:300px !important;
   width: 100%;
-}
+} */
 
 #profile-pic{
   margin-left:-200px !important; 
