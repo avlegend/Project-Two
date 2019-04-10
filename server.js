@@ -20,6 +20,16 @@ app.use(express.static("public"));
 // Morgan will any HTTP request to the terminal
 app.use(morgan("dev"));
 
+// POST a recipe
+app.post("/api/recipe", (req, res) => {
+  db.Recipe
+  .create({
+    title: req.body.title,
+  }).then(dbrecipe => {
+    res.json(dbrecipe)
+  });
+});
+
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({
