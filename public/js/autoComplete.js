@@ -5,6 +5,9 @@ var options = {
     "Lamb", "Lamb chops", "Lemon", "Lime pie", "Liver", "Lasagna", "Lobster", "Mac and Cheese", "Macarons", "Margarita", "Mashed potatoes", "Meatloaf", "Muffins", "Mustard",
     "Nachos", "Oatmeal cookies", "Omellete", "Onion rings", "Orange", "Pancake", "Parmesan roasted broccoli", "Pasta", "Pea soup", "Peanut butter and jelly", "Pecan pie", "Pepperoni pizza", "Pho", "Pie", "Pizza", "Potatoes", "Popsicles", "Pork chops", "Pot Pie", "Pot stickers", "Potatoe skins", "Pound cake", "Pumpkin pie", "Quino","Raisin bread", "Ramen", "Red velvet cake", "Ribs", "Rice vermicelli", "Raspberry", "Rice pilaf", "Roast beef", "Rum cake", "Salad", "Sandwich", "Smoked sausage", "Scrambeled Eggs", "Shami kebab", "Shrimp", "Sloppy joes", "Smoked salom", "Smoothie", "Spinach and kale smoothie", "Squash", "Spaghetti", "Sponge cake", "Spring Roll", "Soup", "Strawberry pie", "Stir fry", "Swedish meatballs", "Sweet Potato", "Sushi", "Strawberry", "Strawberry cake", "Tacos", "Tarter sauce", "Tater Tots", "Thai salad", "Thai noodles‎", "Tikka", "tofu", "Tomato soup", "Tomato chutney", "Tortilla", "Turkey", "Turkey and stuffing casserole", "Turkey chowder", "Unsweetened chocolate", "Upside-down cake", "Vietnamese noodles‎", "Vietnamese Sandwich", "Walnut", "Waffle", "Wheat tortilla", "Vegan cookies", "Vegan", "Vegetarian", "Yams", "Yogurt", "Zucchini", "zucchini bread", "Zuppa pavese"],
   list: {
+    onClickEvent: function () {
+      $("#search").submit()
+    },
     match: {
       enabled: true
     }
