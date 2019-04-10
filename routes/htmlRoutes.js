@@ -31,6 +31,15 @@ module.exports = app => {
     });
   });
 
+
+  app.get("/example/", isAuthenticated, (req, res) => {
+    db.Example.findAll().then(dbExample => {
+      res.render("example", {
+        example: dbExample
+      });
+    });
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => res.render("404"));
 };

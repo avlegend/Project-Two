@@ -5,7 +5,7 @@
       <img
         src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/08aea422-eab9-428b-82c9-9c04e411bb8c/dan2fta-512882e1-ad4a-4c23-9194-8ea14e276e22.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA4YWVhNDIyLWVhYjktNDI4Yi04MmM5LTljMDRlNDExYmI4Y1wvZGFuMmZ0YS01MTI4ODJlMS1hZDRhLTRjMjMtOTE5NC04ZWExNGUyNzZlMjIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Wl_zyJACEcfwgOMw73XlhwNiLSUkx62U8kWvtZKV0Sg"
         width="200px">
-      <h3>Let's see if Grubby Bobby can help you:</h3>
+      <h3>Let's see if Mr. Grub can help you:</h3>
       <form id="houndSearch">
         <div class="input-group">
           {{!-- <label for="searchRecipe">Search Recipe</label> --}}
@@ -21,79 +21,4 @@
   </div>
 
 
-
-
-  {{!-- ///SPEECH --}}
-  <form id="labnol" method="get" action="https://www.google.com/search">
-    <div class="speech">
-      <input type="text" name="q" id="transcript" placeholder="Speak" />
-      <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
-      <button type="submit" class="btn">Submit</button>
-    </div>
-  </form>
-
-</div>
-
-<!-- CSS Styles -->
-<style>
-  .speech {
-
-    border: 1px solid #DDD;
-    width: 300px;
-    padding: 0;
-    margin: 0
-  }
-
-  #labnol {
-    margin-left: 39%;
-    text-align: center;
-    margin-top: 100px;
-  }
-
-  .speech input {
-    border: 0;
-    width: 240px;
-    display: inline-block;
-    height: 30px;
-  }
-
-  .speech img {
-    float: right;
-    width: 40px
-  }
-
-  #grubPage {
-    background-color: white;
-  }
-</style>
-
-<!-- Search Form -->
-
-<!-- HTML5 Speech Recognition API -->
-<script>
-  function startDictation() {
-
-    if (window.hasOwnProperty('webkitSpeechRecognition')) {
-
-      var recognition = new webkitSpeechRecognition();
-
-      recognition.continuous = false;
-      recognition.interimResults = false;
-
-      recognition.lang = "en-US";
-      recognition.start();
-
-      recognition.onresult = function (e) {
-        document.getElementById('transcript').value
-          = e.results[0][0].transcript;
-        recognition.stop();
-        document.getElementById('labnol').submit();
-      };
-
-      recognition.onerror = function (e) {
-        recognition.stop();
-      }
-
-    }
-  }
 </script>

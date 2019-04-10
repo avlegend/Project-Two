@@ -2,15 +2,20 @@
   <div class="col-8 offset-2">
     <div class="card mt-4">
       <div class="card-body">
-        <h5 class="card-title">Example</h5>
+        <h5 class="card-title">Post recipe!</h5>
+
         <p>
-          <strong>ID</strong>: {{example.id}}</p>
+          <strong></strong> {{example.id}}</p>
         <p>
+          <strong>Title</strong>: {{example.title}}</p>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Chicken Noodle Soup">
         <p>
-          <strong>Text</strong>: {{example.text}}</p>
+          <strong>Ingredients</strong>: {{example.text}}</p>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         <p>
-          <strong>Description:</strong> {{example.description}}</p>
-          <a href="/home">← Back To Home</a>
+          <strong>Instructions</strong>: {{example.description}}</p>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <a href="/home">← Back To Home</a>
       </div>
     </div>
   </div>

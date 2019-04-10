@@ -24,8 +24,9 @@ module.exports = app => {
   app.post("/api/examples", isAuthenticated, (req, res) => {
     db.Example.create({
       UserId: req.user.id,
-      text: req.body.text,
-      description: req.body.description
+      title: req.body.title,
+      ingredients: req.body.ingredients,
+      instructions: req.body.instructions
     }).then(dbExample => {
       res.json(dbExample);
     });
