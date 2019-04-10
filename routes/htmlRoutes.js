@@ -7,6 +7,9 @@ module.exports = app => {
   // Load login page
   app.get("/login", (req, res) => res.render("login"));
 
+
+  //Load Post Page
+  app.get("/example", (req, res) => res.render("example"));
   // Load profile page
   app.get("/profile", isAuthenticated, (req, res) => {
     db.User.findOne({
