@@ -5,25 +5,28 @@ body{
 }
 
 .btn{
-  background-color: #418242  !important;
-  border: white !important;
+  background-color: #FCD949  ;
+  color: black;
+  border: white ;
 }
 
 #email{
-  background: white  !important;
+  background: white  ;
 }
 
 #password{
-  background: white  !important;
+  background: white  ;
 }
-
 
 
 /* NAVBAR */
 #slogan{
   margin-top: 12px;
 }
-
+#nav-bar{
+  background-color: #1B4118 ;
+  
+}
 .list-group-item {
   line-height: 2.5;
 }
@@ -33,11 +36,12 @@ body{
   padding:0;
 }
 .nav-item{
-  z-index:1000 !important;
+  z-index:1000 ;
 }
-.nav-link{
-  color: white !important;
+.nav-link1{
+  color: white ;
   z-index:1000;
+  margin: 10px;
 }
 
 /* SIGN-up PAGE */
@@ -53,15 +57,17 @@ body{
 }
 
 #form-control{
-  background-color: #1B4118 !important;
+  background-color: #1B4118 ;
 }
+
+
 
 
 /* FOOTER */
 /* #footer-icons{
 margin-top: 15px;
-margin-bottom:-60px !important;
-padding:0 !important;
+margin-bottom:-85px ;
+padding:0 ;
 text-align: center;
 color: #1B4118;
 }
@@ -100,12 +106,12 @@ footer {
   padding-bottom: 100px;
 }
 #profile-pic{
-  margin-left:-200px !important; 
-  margin-right:-150px !important; 
+  margin-left:-200px ; 
+  margin-right:-150px ; 
   z-index: 10;
   position: static;
-  width: 2500px;
-  height: 1000px;
+  width: 2500px ;
+  height: 1000px ;
 }
 
 #searchbar{
@@ -114,6 +120,7 @@ footer {
   padding: 10px;
   width: 500px;
   text-align: center;
+ 
 }
 .col-md-8 {
   margin-top: 40px;

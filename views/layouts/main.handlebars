@@ -23,7 +23,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar-first">
-    <div class="container">
+    <div class="container" id="nav-bar">
       <a class="navbar-brand" href="/profile">
         <img src="https://i.imgur.com/Aikj556.png?1" width="190px" height="70px">
       </a>
@@ -35,24 +35,38 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
           {{#if user}}
+
           <li class="nav-item">
-            <a class="nav-link" href="/profile" id="slogan"> Fantastic feasts and where to find them </a>
+            <a class="nav-link1" href="/profile" id="slogan"> Fantastic feasts and where to find them </a>
           </li>
+
+          
+
           {{/if}}
         </ul>
         <ul class="navbar-nav" id="nav-font">
           {{#unless user}}
           <li class="nav-item">
-            <a class="nav-link" href="/">Signup</a>
+            <a class="nav-link1" href="/">Signup</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link1" href="/login">Login</a>
           </li>
           {{/unless}}
           {{#if user}}
           <li class="nav-item">
+            <a class="nav-link1" href="/profile">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link1" href="/grub">Grub</a>
+          </li>
+
+
+          <li class="nav-item">
             <a class="nav-link" href="/example">My Recipes</a>
           </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>
           </li>
@@ -109,7 +123,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+      <a href="https://mdbootstrap.com/education/bootstrap/"> GitGrub Inc.</a>
     </div>
     <!-- Copyright -->
 
@@ -157,6 +171,7 @@
   <script src="/js/signup.js"></script>
   <script src="/js/login.js"></script>
   <script src="/js/apiResults.js"></script>
+  <script src="/js/hound.js"></script>
   <script src="/js/jquery.easy-autocomplete.min.js"></script>
   <script src="/js/autoComplete.js"></script>
   <script src="/js/recipe.js"></script>
