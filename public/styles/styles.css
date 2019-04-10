@@ -92,3 +92,7 @@ footer{
 .col-md-8 {
   margin-top: 40px;
 }
+
+.easy-autocomplete-container .eac-item {
+  color: #000;
+}
