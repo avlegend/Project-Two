@@ -19,7 +19,7 @@ module.exports = app => {
   app.post("/api/favorites", (req, res) => {
     db.Favorite.create({
       //UserId: req.user.id,
-      UserId: 1,
+      UserId: req.user.id,
       title: req.body.title,
       link: req.body.link, 
       calories: req.body.calories
