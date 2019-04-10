@@ -1,3 +1,6 @@
+html {
+  height: 100%;
+}
 body{
   background-color: #FFFADD !important;
   height: 100%;
@@ -68,30 +71,7 @@ body{
 
 
 
-/* FOOTER */
-/* #footer-icons{
-margin-top: 15px;
-margin-bottom:-85px ;
-padding:0 ;
-text-align: center;
-color: #1B4118;
-}
 
-footer{
-  background-color: #FFFADD ;
-} */
-/* footer {
-  clear: both;
-  font-size: 12px;
-  background-color: #FFFADD;
-  text-align: center;
-  border-top: 8px solid #FFFADD;
-  height: 20px;
-} */
-/* .footer-container {
-  height: 30px;
-  margin-top: 5px;
-} */
 footer {
   height: 50px; 
   max-height: 50px;
@@ -142,4 +122,7 @@ footer {
 }
 .easy-autocomplete-container .eac-item {
   color: #000;
+}
+* {
+  border: 2px solid red;
 }
