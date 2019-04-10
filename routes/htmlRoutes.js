@@ -7,6 +7,9 @@ module.exports = app => {
   // Load login page
   app.get("/login", (req, res) => res.render("login"));
 
+  // Load post page
+  app.get("/post", (req, res) => res.render("post"));
+
   // Load Grub
   app.get("/grub", isAuthenticated, (req, res) => res.render("grub"));
 
@@ -39,6 +42,7 @@ module.exports = app => {
       });
     });
   });
+
 
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => res.render("404"));
