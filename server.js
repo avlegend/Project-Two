@@ -45,7 +45,8 @@ app.use(passport.session());
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "main"
+    defaultLayout: "main",
+    partialsDir: "views/partials"
   })
 );
 app.set("view engine", "handlebars");

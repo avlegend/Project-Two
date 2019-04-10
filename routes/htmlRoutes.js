@@ -11,6 +11,10 @@ module.exports = app => {
   app.get("/grub", isAuthenticated, (req, res) => res.render("grub", {user: req.user}));
 
   // Load home page
+
+  //Load Post Page
+  app.get("/example", (req, res) => res.render("example"));
+  // Load profile page
   app.get("/profile", isAuthenticated, (req, res) => {
     db.User.findOne({
       where: {
