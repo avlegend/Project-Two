@@ -12,12 +12,12 @@ $("#search").on("submit", function (event) {
         method: "GET",
         url: queryUrl2
     }).then(function (response) {
-        //console.log(response)
+        console.log(response.hits[1])
         for (var i = 0; i < response.hits.length; i++) {
             var imageUrl = response.hits[i].recipe.image
             var label = $("<h5>").text(response.hits[i].recipe.label);
             var linkUrl = response.hits[i].recipe.url
-            var calories = response.hits[i].recipe.calories
+            var calories = parseInt(response.hits[i].recipe.calories)
             //console.log(calories)
             var index;
             

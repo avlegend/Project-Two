@@ -36,10 +36,11 @@ var refreshFavs = function() {
       var tableIndex = $("<th>")
       tableIndex.attr("scope", i).text(i + 1)
       var tableEntry = $("<td>").text(data[i].title).attr("class", "fav-item" + i)
+      var calorieEntry = $("<td>").text(data[i].calories)
       var deleteBtn = $("<td>").html("<button class='btn deleteRecipe' data-id=" + data[i].id +">X</button>")
-      tableRow.append(tableIndex, tableEntry, deleteBtn)
+      tableRow.append(tableIndex, tableEntry, calorieEntry, deleteBtn)
       $(".fav-container").append(tableRow)
-      $(".fav-item" + i).wrap("<a href = '" + data[i].link + "' target='_blank'></a>")
+      $(".fav-item" + i).wrap("<a href = '" + data[i].link + "' class='favrecipelink' target='_blank'></a>")
     }
     
   });
@@ -47,11 +48,12 @@ var refreshFavs = function() {
 refreshFavs()
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFavSubmit = function(recipeTitle, recipeLink) {
+var handleFavSubmit = function(recipeTitle, recipeLink, recipeCalories) {
 
   var favorite = {
     title: recipeTitle,
     link: recipeLink,
+    calories: recipeCalories,
     UserId: 1
   };
 //console.log(favorite)
@@ -77,7 +79,8 @@ $(document).on("click", ".heart", function(event) {
   event.preventDefault()
   var recipeTitle = $(this).attr("data-title")
   var recipeLink = $(this).attr("data-link")
-  handleFavSubmit(recipeTitle, recipeLink)
+  var recipeCalories = $(this).attr("data-calories")
+  handleFavSubmit(recipeTitle, recipeLink, recipeCalories)
 });
 $(document).on("click", ".deleteRecipe", function(event) {
   event.preventDefault()

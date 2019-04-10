@@ -21,7 +21,8 @@ module.exports = app => {
       //UserId: req.user.id,
       UserId: 1,
       title: req.body.title,
-      link: req.body.link
+      link: req.body.link, 
+      calories: req.body.calories
     }).then(dbFav => {
       res.json(dbFav);
     });

@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     link: {
       type: DataTypes.STRING
+    }, 
+    calories: {
+      type: DataTypes.STRING
     }
   });
 

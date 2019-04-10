@@ -99,5 +99,7 @@ footer{
   background: #FFFADD;
   color: #1B4118;
   margin: 20px auto;
-
+}
+.favrecipelink {
+  color: black
 }
