@@ -7,13 +7,14 @@ const axios = require("axios");
 
 module.exports = app => {
   // Get all examples
-  app.get("/api/examples", isAuthenticated, (req, res) => {
-    db.Example.findAll({
-      where: {
-        UserId: req.user.id
-      }
-    }).then(dbExamples => {
-      res.json(dbExamples);
+  app.get("/api/favorites", (req, res) => {
+    db.Favorite.findAll({
+       where: {
+      //   UserId: req.user.id
+        UserId: 1
+       }
+    }).then(dbFavs => {
+      res.json(dbFavs);
     });
   });
 
@@ -21,21 +22,22 @@ module.exports = app => {
 
 
   // Create a new example
-  app.post("/api/examples", isAuthenticated, (req, res) => {
-    db.Example.create({
-      UserId: req.user.id,
+  app.post("/api/favorites", (req, res) => {
+    db.Favorite.create({
+      //UserId: req.user.id,
+      UserId: 1,
       title: req.body.title,
-      ingredients: req.body.ingredients,
-      instructions: req.body.instructions
-    }).then(dbExample => {
-      res.json(dbExample);
+      link: req.body.link, 
+      calories: req.body.calories
+    }).then(dbFav => {
+      res.json(dbFav);
     });
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", isAuthenticated, (req, res) => {
-    db.Example.destroy({ where: { id: req.params.id } }).then(dbExample => {
-      res.json(dbExample);
+  app.delete("/api/favorites/:id", (req, res) => {
+    db.Favorite.destroy({ where: { id: req.params.id } }).then(dbFavs => {
+      res.json(dbFavs);
     });
   });
 
@@ -144,6 +146,14 @@ module.exports = app => {
   //       })
   //   });
 
+  // ************** Here we will connect the .get and .post **************
+  // app.get("/api/favorites", isAuthenticated, (req, res) => {
+  //   db.Favorite
+  //   .findAll({})
+  //   .then((dbFavorite) => {
+  //     // res.render("profile", {favorite: dbFavorite});
+  //     res.json(dbFavorite)
+  //   });
   // });
 
   // app.get("/api/examples", isAuthenticated, (req, res) => {
@@ -159,12 +169,12 @@ module.exports = app => {
 
   // POST to create a new recipe
   //connects to module favorite.js and keep keys identical
-  app.post("/api/favorites", (req, res) => {
-    db.Favorite
-      .create({
-        title: req.body.title,
-        UserId: req.user.id
-      }).then(data => res.json(data));
-  });
+//   app.post("/api/favorites", (req, res) => {
+//     db.Favorite
+//       .create({
+//         title: req.body.title,
+//         UserId: req.user.id
+//       }).then(data => res.json(data));
+//   });
 
-};
+ };

@@ -99,3 +99,15 @@ footer{
 .col-md-8 {
   margin-top: 40px;
 }
+
+.tableHolder {
+  background: #FFFADD;
+  color: #1B4118;
+  margin: 20px auto;
+}
+.favrecipelink {
+  color: black;
+}
+.easy-autocomplete-container .eac-item {
+  color: #000;
+}
