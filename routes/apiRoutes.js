@@ -4,31 +4,33 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = app => {
   // Get all examples
-  app.get("/api/examples", isAuthenticated, (req, res) => {
-    db.Example.findAll({
-      where: {
-        UserId: req.user.id
-      }
-    }).then(dbExamples => {
-      res.json(dbExamples);
+  app.get("/api/favorites", (req, res) => {
+    db.Favorite.findAll({
+       where: {
+      //   UserId: req.user.id
+        UserId: 1
+       }
+    }).then(dbFavs => {
+      res.json(dbFavs);
     });
   });
 
   // Create a new example
-  app.post("/api/examples", isAuthenticated, (req, res) => {
-    db.Example.create({
-      UserId: req.user.id,
-      text: req.body.text,
-      description: req.body.description
-    }).then(dbExample => {
-      res.json(dbExample);
+  app.post("/api/favorites", (req, res) => {
+    db.Favorite.create({
+      //UserId: req.user.id,
+      UserId: 1,
+      title: req.body.title,
+      link: req.body.link
+    }).then(dbFav => {
+      res.json(dbFav);
     });
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", isAuthenticated, (req, res) => {
-    db.Example.destroy({ where: { id: req.params.id } }).then(dbExample => {
-      res.json(dbExample);
+  app.delete("/api/favorites/:id", (req, res) => {
+    db.Favorite.destroy({ where: { id: req.params.id } }).then(dbFavs => {
+      res.json(dbFavs);
     });
   });
 
@@ -67,23 +69,34 @@ module.exports = app => {
   });
 
   // ************** Here we will connect the .get and .post **************
-  app.get("/api/favorites", (req, res) => {
-    db.Favorite
-    .findAll({})
-    .then((dbFavorite) => {
-      res.json(dbFavorite);
-    });
-  });
+  // app.get("/api/favorites", isAuthenticated, (req, res) => {
+  //   db.Favorite
+  //   .findAll({})
+  //   .then((dbFavorite) => {
+  //     // res.render("profile", {favorite: dbFavorite});
+  //     res.json(dbFavorite)
+  //   });
+  // });
+
+  // app.get("/api/examples", isAuthenticated, (req, res) => {
+  //   db.Example.findAll({
+  //     where: {
+  //       UserId: req.user.id
+  //     }
+  //   }).then(dbExamples => {
+  //     res.json(dbExamples);
+  //   });
+  // });
 
 
   // POST to create a new recipe
   //connects to module favorite.js and keep keys identical
-  app.post("/api/favorites", (req, res) => {
-    db.Favorite
-      .create({
-        title: req.body.title,
-        UserId: req.user.id
-      }).then(data => res.json(data));
-  });
+//   app.post("/api/favorites", (req, res) => {
+//     db.Favorite
+//       .create({
+//         title: req.body.title,
+//         UserId: req.user.id
+//       }).then(data => res.json(data));
+//   });
 
-};
+ };

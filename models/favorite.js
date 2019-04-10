@@ -5,6 +5,9 @@ module.exports = (sequelize, DataTypes) => {
     // Giving the recipe model a name of type STRING
     title: {
       type: DataTypes.STRING
+    },
+    link: {
+      type: DataTypes.STRING
     }
   });
 

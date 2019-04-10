@@ -1,29 +1,24 @@
-// Get references to page elements
- var $exampleText = $(".heart").attr("data-title");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
-//let $favItem = $(".heart").attr("data-title");
+$(document).ready(function () {
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveFav: function(recipe) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
       url: "api/favorites",
-      data: JSON.stringify(example)
+      data: JSON.stringify(recipe)
     });
   },
-  getExamples: function() {
+  getFavs: function() {
     return $.ajax({
       url: "api/favorites",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteFav: function(id) {
     return $.ajax({
       url: "api/favorites/" + id,
       type: "DELETE"
@@ -32,69 +27,62 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/favorite/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
+var refreshFavs = function() {
+  $(".fav-container").empty()
+  API.getFavs().then(function(data) {
+    //console.log(data)
+    for(let i=0; i<data.length; i++) {
+      var tableRow = $("<tr>")
+      var tableIndex = $("<th>")
+      tableIndex.attr("scope", i).text(i + 1)
+      var tableEntry = $("<td>").text(data[i].title).attr("class", "fav-item" + i)
+      var deleteBtn = $("<td>").html("<button class='btn deleteRecipe' data-id=" + data[i].id +">X</button>")
+      tableRow.append(tableIndex, tableEntry, deleteBtn)
+      $(".fav-container").append(tableRow)
+      $(".fav-item" + i).wrap("<a href = '" + data[i].link + "' target='_blank'></a>")
+    }
+    
   });
 };
-
+refreshFavs()
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
+var handleFavSubmit = function(recipeTitle, recipeLink) {
 
-  var example = {
-    title: $exampleText.val().trim(),
-    //description: $exampleDescription.val().trim()
+  var favorite = {
+    title: recipeTitle,
+    link: recipeLink,
+    UserId: 1
   };
-
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
-
-  API.saveExample(example).then(function() {
-    refreshExamples();
+//console.log(favorite)
+  API.saveFav(favorite).then(function() {
+    refreshFavs();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+var handleDeleteBtnClick = function(recipeid) {
+  var idToDelete = recipeid
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteFav(idToDelete).then(function() {
+    //refreshFavs();
+    location.reload("/")
   });
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$(document).on("click", ".heart", function(event) {
+  event.preventDefault()
+  var recipeTitle = $(this).attr("data-title")
+  var recipeLink = $(this).attr("data-link")
+  handleFavSubmit(recipeTitle, recipeLink)
+});
+$(document).on("click", ".deleteRecipe", function(event) {
+  event.preventDefault()
+  var recipeid = $(this).attr("data-id")
+  console.log(recipeid)
+  handleDeleteBtnClick(recipeid)
+});
+})
