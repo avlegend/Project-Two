@@ -51,6 +51,11 @@ body{
   margin-top:50px;
   z-index:2;
 }
+.login-container {
+  min-height: 100%;
+  margin-bottom: 35px;
+  padding-bottom: 100px;
+}
 
 #form-control{
   background-color: #1B4118 !important;
@@ -93,9 +98,9 @@ footer {
 /* PROFILE (SECOND PAGE) */
 .personalPage {
   background: url("https://www.foodiesfeed.com/wp-content/uploads/2019/02/messy-pizza-on-a-black-table.jpg");
-  min-height: 100%; 
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100%;
   margin-bottom: -50px;
   padding-bottom: 100px;
 }
