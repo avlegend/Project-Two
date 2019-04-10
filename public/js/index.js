@@ -30,7 +30,14 @@ $(document).ready(function () {
   var refreshFavs = function () {
     $(".fav-container").empty()
     API.getFavs().then(function (data) {
-      //console.log(data)
+      console.log(data.length)
+      if (data.length === 0) {
+        $(".tableHolder").hide();
+      }
+      else {
+        $(".tableHolder").show();
+      }
+
       for (let i = 0; i < data.length; i++) {
         var tableRow = $("<tr>")
         var tableIndex = $("<th>")
