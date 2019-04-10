@@ -8,7 +8,7 @@ module.exports = app => {
   app.get("/login", (req, res) => res.render("login"));
 
   // Load Grub
-  app.get("/grub", isAuthenticated, (req, res) => res.render("grub"));
+  app.get("/grub", isAuthenticated, (req, res) => res.render("grub", {user: req.user}));
 
   // Load home page
   app.get("/profile", isAuthenticated, (req, res) => {

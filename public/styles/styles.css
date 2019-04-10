@@ -58,9 +58,7 @@ body{
   background-color: #1B4118 ;
 }
 
-#logPage{
-  height: 300px;
-}
+
 
 
 /* FOOTER */
@@ -79,6 +77,7 @@ footer{
 footer {
   padding-top: 15px;
   text-align: center;
+  height: 100px;
 }
 
 /* HOME (SECOND PAGE) */
@@ -91,12 +90,12 @@ footer {
     padding-bottom: 40px;
 }
 #profile-pic{
-  margin-left:-200px !; 
-  margin-right:-150px !; 
+  margin-left:-200px ; 
+  margin-right:-150px ; 
   z-index: 10;
   position: static;
-
-
+  width: 2500px ;
+  height: 1000px ;
 }
 
 #searchbar{
@@ -105,6 +104,7 @@ footer {
   padding: 10px;
   width: 500px;
   text-align: center;
+ 
 }
 .col-md-8 {
   margin-top: 40px;
@@ -114,6 +114,7 @@ footer {
   background: #FFFADD;
   color: #1B4118;
   margin: 20px auto;
+  
 }
 .favrecipelink {
   color: black;
