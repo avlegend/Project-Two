@@ -7,10 +7,13 @@ module.exports = app => {
   // Load login page
   app.get("/login", (req, res) => res.render("login"));
 
+  // Load Grub
+  app.get("/grub", isAuthenticated, (req, res) => res.render("grub", {user: req.user}));
+
 
   //Load Post Page
-  app.get("/example", (req, res) => res.render("example"));
-  // Load profile page
+  app.get("/example", isAuthenticated,(req, res) => res.render("example",{user: req.user}));
+  // Load profile page 
   app.get("/profile", isAuthenticated, (req, res) => {
     db.User.findOne({
       where: {
@@ -30,6 +33,16 @@ module.exports = app => {
       });
     });
   });
+
+
+  app.get("/example/", isAuthenticated, (req, res) => {
+    db.Example.findAll().then(dbExample => {
+      res.render("example", {
+        example: dbExample
+      });
+    });
+  });
+
 
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => res.render("404"));
