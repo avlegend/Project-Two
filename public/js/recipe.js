@@ -1,3 +1,5 @@
+// creating the functionality for our favorite recipes
+
 $(document).ready(function () {
     // recipeContainer holds all of our posts
     //let recipeContainer = $(".heart");
@@ -13,9 +15,19 @@ $(document).ready(function () {
     let posts;
     // This function grabs posts from the database and updates the view
 
+    $.ajax({
+        url: "/api/recipe",
+        method: "POST",
+        data: recipe
+    }).then(function(data){
+        console.log(data);
+        window.location.reload("/")
+    })
+
+
     function saveRecipe() {
         // event.preventDefault();
-        //alert("Ive been clicked!")
+        alert("Ive been clicked!")
         const newRecipe = ({
             title: $(this).attr("data-title"),
             UserId: 20

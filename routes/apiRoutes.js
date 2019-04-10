@@ -82,7 +82,7 @@ module.exports = app => {
     db.Favorite
       .create({
         title: req.body.title,
-        UserId: req.user.id
+        UserId: req.user.userid
       }).then(data => res.json(data));
   });
 
