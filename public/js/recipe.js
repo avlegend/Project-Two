@@ -9,6 +9,24 @@ $(document).ready(function () {
 
     $(document).on("click", ".heart", saveRecipe);
 
+
+    // $("#houndSearch").on("submit", function (event) {
+    //     event.preventDefault();
+    
+    //     const houndSearch = $("#hound-search-input").val().trim();
+    
+    
+    //     var queryUrl2 = `/api/hound/${houndSearch}`;
+       
+    //     $.ajax({
+    //         method: "GET",
+    //         url: queryUrl2
+    //     }).then(function (response) {
+    //         console.log(response);
+    //         $("#show-hound-text").text(response.WrittenResponseLong);
+    //     });
+    // });
+
     let favContainer = $(".fav-container");
     let posts;
     // This function grabs posts from the database and updates the view
@@ -20,10 +38,18 @@ $(document).ready(function () {
             title: $(this).attr("data-title"),
             UserId: 20
         })
+
         $.post("/api/favorites", newRecipe, function (data) {
             console.log(data.title);
             console.log("post data route")
         })
+
+        $.get("/api/favorites", newRecipe, function (data) {
+            $("#bob2").text(JSON.stringify(newRecipe.title));
+        })
+
+
+
         // console.log(newRecipe);
     };
 

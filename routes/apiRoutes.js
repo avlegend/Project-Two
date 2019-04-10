@@ -17,6 +17,9 @@ module.exports = app => {
     });
   });
 
+
+
+
   // Create a new example
   app.post("/api/examples", isAuthenticated, (req, res) => {
     db.Example.create({
@@ -42,7 +45,8 @@ module.exports = app => {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    res.json("/profile");
+    res.json("/home");
+   
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -69,7 +73,8 @@ module.exports = app => {
     res.redirect("/");
   });
 
-  
+
+
 
   app.get("/api/hound/:query", (req, res) => {
 
@@ -115,7 +120,7 @@ module.exports = app => {
       return headers;
     };
 
-    const myHeaders =  generateAuthHeaders("eT1NIPB2gSoL9yvc-cg1Pg==", "GDD42myRc-vD7_ZEBqG_7r_2dh2nZVjKBFcBEJuDrmYzGwBzTfWPl5Fm51-RHKLotgFbs2vBFnmf7_DM_8yj0Q==")
+    const myHeaders = generateAuthHeaders("eT1NIPB2gSoL9yvc-cg1Pg==", "GDD42myRc-vD7_ZEBqG_7r_2dh2nZVjKBFcBEJuDrmYzGwBzTfWPl5Fm51-RHKLotgFbs2vBFnmf7_DM_8yj0Q==")
     axios({
       url: `https://api.houndify.com/v1/text?query=${req.params.query}`,
       method: "POST",
@@ -124,14 +129,31 @@ module.exports = app => {
       res.json(response.data.AllResults[0]);
     });
   })
+
+
+
   // ************** Here we will connect the .get and .post **************
-  app.get("/api/favorites", (req, res) => {
-    db.Favorite
-    .findAll({})
-    .then((dbFavorite) => {
-      res.json(dbFavorite);
-    });
-  });
+  // app.get("/api/favorites", isAuthenticated, (req, res) => {
+  //   db.Favorite.findAll({
+  //     where: {
+  //       UserId: req.user.id
+  //     }
+  //       .then(dbFavorite => {
+  //         $("#bob").text(res.json(dbFavorite));
+  //       })
+  //   });
+
+  // });
+
+  // app.get("/api/examples", isAuthenticated, (req, res) => {
+  //   db.Example.findAll({
+  //     where: {
+  //       UserId: req.user.id
+  //     }
+  //   }).then(dbExamples => {
+  //     res.json(dbExamples);
+  //   });
+  // });
 
 
   // POST to create a new recipe
