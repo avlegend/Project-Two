@@ -34,17 +34,17 @@ module.exports = app => {
     });
   });
 
-  app.post("/api/posts", (req, res) => {
-    db.Post.create({
-      //UserId: req.user.id,
-      UserId: 1,
-      title: req.body.title,
-      ingredients: req.body.ingredients, 
-      instructions: req.body.instructions
-    }).then(dbPost => {
-      res.json(dbPost);
-    });
-  });
+  // app.post("/api/posts", (req, res) => {
+  //   db.Post.create({
+  //     //UserId: req.user.id,
+  //     UserId: 1,
+  //     title: req.body.title,
+  //     ingredients: req.body.ingredients, 
+  //     instructions: req.body.instructions
+  //   }).then(dbPost => {
+  //     res.json(dbPost);
+  //   });
+  // });
 
   // Delete an example by id
   app.delete("/api/favorites/:id", (req, res) => {
@@ -60,7 +60,7 @@ module.exports = app => {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    res.json("/home");
+    res.json("/profile");
    
   });
 

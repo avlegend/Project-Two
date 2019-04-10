@@ -7,21 +7,18 @@ module.exports = app => {
   // Load login page
   app.get("/login", (req, res) => res.render("login"));
 
-  // Load post page
-  app.get("/post", (req, res) => res.render("post"));
-
   // Load Grub
   app.get("/grub", isAuthenticated, (req, res) => res.render("grub"));
 
   // Load home page
-  app.get("/home", isAuthenticated, (req, res) => {
+  app.get("/profile", isAuthenticated, (req, res) => {
     db.User.findOne({
       where: {
         id: req.user.id
       },
       include: [db.Example]
     }).then(dbUser => {
-      res.render("home", { user: dbUser });
+      res.render("profile", { user: dbUser });
     });
   });
 
