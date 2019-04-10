@@ -8,6 +8,7 @@ $("#search").on("submit", function (event) {
     //clear previous results
     $(".slide1").empty();
     $(".slide2").empty();
+
     $.ajax({
         method: "GET",
         url: queryUrl2

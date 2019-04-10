@@ -101,5 +101,8 @@ footer{
   margin: 20px auto;
 }
 .favrecipelink {
-  color: black
+  color: black;
+}
+.easy-autocomplete-container .eac-item {
+  color: #000;
 }
