@@ -7,11 +7,11 @@ const axios = require("axios");
 
 module.exports = app => {
   // Get all examples
-  app.get("/api/favorites", (req, res) => {
+  app.get("/api/favorites", isAuthenticated, (req, res) => {
     db.Favorite.findAll({
        where: {
       //   UserId: req.user.id
-        UserId: 1
+        UserId: req.user.id
        }
     }).then(dbFavs => {
       res.json(dbFavs);
@@ -22,10 +22,10 @@ module.exports = app => {
 
 
   // Create a new example
-  app.post("/api/favorites", (req, res) => {
+  app.post("/api/favorites", isAuthenticated, (req, res) => {
     db.Favorite.create({
       //UserId: req.user.id,
-      UserId: 1,
+      UserId: req.user.id,
       title: req.body.title,
       link: req.body.link, 
       calories: req.body.calories
