@@ -21,14 +21,14 @@ app.use(express.static("public"));
 app.use(morgan("dev"));
 
 // POST a recipe
-app.post("/api/recipe", (req, res) => {
-  db.Recipe
-  .create({
-    title: req.body.title,
-  }).then(dbrecipe => {
-    res.json(dbrecipe)
-  });
-});
+// app.post("/api/recipe", (req, res) => {
+//   db.Recipe
+//   .create({
+//     title: req.body.title,
+//   }).then(dbrecipe => {
+//     res.json(dbrecipe)
+//   });
+// });
 
 // We need to use sessions to keep track of our user's login status
 app.use(
@@ -56,7 +56,7 @@ require("./routes/htmlRoutes")(app);
 
 // keep true when changing models. keep false when testing
 // ******************THIS IS IMPORTANT!!!!!
-const syncOptions = { force: false };
+const syncOptions = { force: true };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

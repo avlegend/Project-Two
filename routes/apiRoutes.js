@@ -34,17 +34,7 @@ module.exports = app => {
     });
   });
 
-  // app.post("/api/posts", (req, res) => {
-  //   db.Post.create({
-  //     //UserId: req.user.id,
-  //     UserId: 1,
-  //     title: req.body.title,
-  //     ingredients: req.body.ingredients, 
-  //     instructions: req.body.instructions
-  //   }).then(dbPost => {
-  //     res.json(dbPost);
-  //   });
-  // });
+
 
   // Delete an example by id
   app.delete("/api/favorites/:id", (req, res) => {
