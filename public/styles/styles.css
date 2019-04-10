@@ -64,7 +64,7 @@ body{
 
 
 /* FOOTER */
-#footer-icons{
+/* #footer-icons{
 margin-top: 15px;
 margin-bottom:-85px ;
 padding:0 ;
@@ -74,19 +74,21 @@ color: #1B4118;
 
 footer{
   background-color: #FFFADD ;
-  height: 50px;
+} 
+*/
+footer {
+  padding-top: 15px;
+  text-align: center;
 }
 
 /* HOME (SECOND PAGE) */
 .personalPage {
-  background: url("https://www.foodiesfeed.com/wp-content/uploads/2019/02/messy-pizza-on-a-black-table.jpg");
-  height: 100vh; 
-  background-repeat: repeat-y;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-
+  background: url("https://www.foodiesfeed.com/wp-content/uploads/2019/02/messy-pizza-on-a-black-table.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-bottom: 40px;
 }
 #profile-pic{
   margin-left:-200px !; 
