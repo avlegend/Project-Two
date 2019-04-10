@@ -14,6 +14,7 @@ $("#user-login").on("submit", function(e) {
   })
     .then(function(data) {
       console.log(data);
+      //***** */stick this into local storage to access user id
       window.location.replace(data);
     })
     .catch(function(err) {
