@@ -75,7 +75,7 @@ module.exports = app => {
           id: req.params.id
         }
       })
-      .then(function(dbPost) {
+      .then(function(dbPost) {  
         res.json(dbPost);
       });
   });

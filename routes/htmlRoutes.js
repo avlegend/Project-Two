@@ -11,6 +11,7 @@ module.exports = app => {
   app.get("/grub", isAuthenticated, (req, res) => res.render("grub", {user: req.user}));
 
 
+
   //Load Post Page
   app.get("/example", isAuthenticated,(req, res) => res.render("example",{user: req.user}));
   // Load profile page 
