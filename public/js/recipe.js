@@ -32,7 +32,15 @@ var API = {
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
+  // $("#recipe-list").empty();
   API.getExamples().then(function(data) {
+    console.log(data.length)
+    if (data.length === 0) {
+      $(".myrecipe-data").hide();
+    }
+    else {
+      $(".myrecipe-data").show();
+    }
     var $myRecipe = data.map(function(example) {
       var $a = $("<a>")
         .text(example.title)

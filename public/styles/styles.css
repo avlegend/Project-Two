@@ -125,6 +125,14 @@ footer {
   min-height: 100%;
   margin-bottom: -50px;
   padding-bottom: 100px;
+  padding-top: 40px;
+  background: url("https://66a5c94f881e00721b04-16146648069df66cb23bbc3aabf47a61.ssl.cf1.rackcdn.com/Adams-food-photography-BoarsHeadHamSalad.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+.myrecipe-page a {
+  color: #1B4118
 }
 
 /*Grub page*/
@@ -132,4 +140,13 @@ footer {
   min-height: 100%;
   margin-bottom: -50px;
   padding-bottom: 100px;
+}
+.myrecipeResult{
+  min-height: 100%;
+  margin-bottom: -50px;
+  padding-bottom: 100px;
+  padding-top: 40px;
+  background: url("https://www.amylevin.co.uk/wp-content/uploads/2017/06/DSCF8411.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
