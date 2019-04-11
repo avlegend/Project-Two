@@ -1,19 +1,24 @@
 <div class="myrecipeResult">
-<div class="row">
-  <div class="col-8 offset-2">
-    <div class="card mt-4">
-      <div class="card-body">
-        <h5 class="card-title">My Recipe</h5>
+  <div class="row">
+    <div class="col-6 offset-2">
+      <h1 class="text-center" style="color:white">
+        My Recipe: {{example.title}}
+      </h1>
+      <div class="card mt-4" style="background: #fffadd">
+        <div class="card-body text-center">
+          {{!-- <h5 class="card-title">My Recipe</h5>
         <p>
           <strong>ID</strong>: {{example.id}}</p>
         <p>
         <p>
           <strong>Title</strong>: {{example.title}}</p>
         <p>
-          <strong>Directions:</strong> {{example.directions}}</p>
+          <strong>Directions:</strong> {{example.directions}}</p> --}}
+          <p>
+          <strong>Directions</strong><br> {{example.directions}}</p>
           <a href="/example">← Back To My Recipes</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>

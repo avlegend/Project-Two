@@ -49,11 +49,11 @@ $(document).ready(function () {
         var tableIndex = $("<th>")
         tableIndex.attr("scope", i).text(i + 1)
         var tableEntry = $("<td>").text(data[i].title).attr("class", "my-recipe" + i)
-        var dataEntry = $("<td>").text(data[i].directions)
+        var dataEntry = $("<td>").text(data[i].directions).attr("class", "myrecipeEntry")
         var deleteBtn = $("<td>").html("<button class='btn deleteMyRecipe' data-id=" + data[i].id + ">X</button>")
         tableRow.append(tableIndex, tableEntry, dataEntry, deleteBtn)
         $("#recipe-list").append(tableRow)
-        $(".my-recipe" + i).wrap("<a href = '" + data[i].link + "' class='my-recipe-link'></a>")
+        $(".my-recipe" + i).wrap("<a href = '/example/" + data[i].id + "' class='my-recipe-link'></a>")
       }
       // var $myRecipe = data.map(function(example) {
       //   var $a = $("<a>")
