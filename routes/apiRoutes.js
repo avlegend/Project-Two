@@ -62,7 +62,7 @@ module.exports = app => {
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", isAuthenticated, (req, res) => {
+  app.delete("/api/examples/:id", (req, res) => {
     db.Example.destroy({ where: { id: req.params.id } }).then(dbExample => {
       res.json(dbExample);
     });

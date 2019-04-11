@@ -108,11 +108,10 @@ footer {
   margin-top: 40px;
 }
 
-.tableHolder {
+.tableHolder, .myrecipe-table {
   background: #FFFADD;
   color: #1B4118;
   margin: 20px auto;
-  /* margin-bottom: 40px; */
 }
 .favrecipelink {
   color: black;

@@ -17,14 +17,30 @@
       </form>
       <h3 class="myrecipe-data">My Recipes:</h3>
 
-      <ul id="recipe-list" class="list-group">
-        {{#each user.Examples}}
-        <li data-id="{{this.id}}" class="list-group-item">
-          <a href="example/{{this.id}}">{{this.text}}</a>
-          <button class="btn btn-danger float-right delete">ｘ</button>
-        </li>
-        {{/each}}
-      </ul>
+
+      <div class="myrecipe-table col-md-6">
+        <table class="table" bgcolor="#00FF00">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Recipe</th>
+              <th scope="col">Directionss</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody id="recipe-list">
+
+          </tbody>
+        </table>
+      </div>
     </div>
+    {{!-- <ul id="recipe-list" class="list-group">
+      {{#each user.Examples}}
+      <li data-id="{{this.id}}" class="list-group-item">
+        <a href="example/{{this.id}}">{{this.text}}</a>
+        <button class="btn btn-danger float-right delete">ｘ</button>
+      </li>
+      {{/each}}
+    </ul> --}}
   </div>
-  </div>
+</div>
