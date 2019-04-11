@@ -2,10 +2,16 @@ html {
   height: 100%;
 }
 body{
-  background-color: #FFFADD !important;
   height: 100%;
   margin: 0;
+  /* font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: 2px */
 }
+/* label {
+  font-size: 20px;
+  letter-spacing: 2px
+} */
 
 .btn{
   background-color: #FCD949  ;
@@ -50,18 +56,29 @@ body{
 /* SIGN-up PAGE */
 
 #a-image{
-  width:704px;
+  /* width: 100%; */
+}
+.grubIn {
+  min-height: 100%;
+  margin-bottom: -50px;
+  padding-top: 40px;
+  background: url("http://www.grewarsfarmshop.co.uk/wp-content/uploads/2017/02/List-Of-Top-Cutting-Board-Background-Images.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
 }
 
 /* LOG-IN */
 .grubclub {
   margin-top: 30px;
+  padding-bottom: 100px;
 }
 #log-in{
   margin-top:50px;
   z-index:2;
 }
 .login-container {
+  
   min-height: 100%;
   /*margin-bottom: 35px;*/
   background: url("https://slack-imgs.com/?c=1&url=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2017%2F05%2F02%2F18%2F20%2Fblueberries-2278921_640.jpg");
@@ -81,11 +98,10 @@ body{
 
 /*Footer*/
 footer {
-  height: 50px; 
-  max-height: 50px;
+  color: white;
   position: relative;
   width: 100%;
-  background-color: #FFFADD;
+  background-color: #1B4118;
   text-align: center;
   padding: 10px;
 }
