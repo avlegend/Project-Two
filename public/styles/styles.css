@@ -68,10 +68,7 @@ body{
   background-color: #1B4118 ;
 }
 
-
-
-
-
+/*Footer*/
 footer {
   height: 50px; 
   max-height: 50px;
@@ -111,15 +108,50 @@ footer {
   margin-top: 40px;
 }
 
-.tableHolder {
+.tableHolder, .myrecipe-table {
   background: #FFFADD;
   color: #1B4118;
   margin: 20px auto;
-  /* margin-bottom: 40px; */
 }
 .favrecipelink {
   color: black;
 }
 .easy-autocomplete-container .eac-item {
   color: #000;
+}
+/*My Recipes Page*/
+.myrecipe-page{
+  min-height: 100%;
+  margin-bottom: -50px;
+  padding-bottom: 100px;
+  padding-top: 40px;
+  background: url("https://66a5c94f881e00721b04-16146648069df66cb23bbc3aabf47a61.ssl.cf1.rackcdn.com/Adams-food-photography-BoarsHeadHamSalad.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+.myrecipe-page a {
+  color: #1B4118
+}
+.myrecipeEntry {
+  white-space: nowrap; 
+  max-width: 280px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: red
+}
+/*Grub page*/
+.grub-page {
+  min-height: 100%;
+  margin-bottom: -50px;
+  padding-bottom: 100px;
+}
+.myrecipeResult{
+  min-height: 100%;
+  margin-bottom: -50px;
+  padding-bottom: 100px;
+  padding-top: 40px;
+  background: url("https://superimagemedia.files.wordpress.com/2008/11/001_4103.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

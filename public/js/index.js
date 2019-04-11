@@ -30,7 +30,7 @@ $(document).ready(function () {
   var refreshFavs = function () {
     $(".fav-container").empty()
     API.getFavs().then(function (data) {
-      console.log(data.length)
+      //console.log(data.length)
       if (data.length === 0) {
         $(".tableHolder").hide();
       }

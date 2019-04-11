@@ -57,7 +57,7 @@ require("./routes/htmlRoutes")(app);
 
 // keep true when changing models. keep false when testing
 // ******************THIS IS IMPORTANT!!!!!
-const syncOptions = { force: true };
+const syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

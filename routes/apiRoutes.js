@@ -6,11 +6,11 @@ const crypto = require("crypto");
 const axios = require("axios");
 
 module.exports = app => {
-  // Get all examples
+  //FAVORITES ROUTES
+  // Get all favorites
   app.get("/api/favorites", isAuthenticated, (req, res) => {
     db.Favorite.findAll({
        where: {
-      //   UserId: req.user.id
         UserId: req.user.id
        }
     }).then(dbFavs => {
@@ -18,13 +18,9 @@ module.exports = app => {
     });
   });
 
-
-
-
-  // Create a new example
+  // Create a new favorite
   app.post("/api/favorites", isAuthenticated, (req, res) => {
     db.Favorite.create({
-      //UserId: req.user.id,
       UserId: req.user.id,
       title: req.body.title,
       link: req.body.link, 
@@ -34,14 +30,56 @@ module.exports = app => {
     });
   });
 
-
-
-  // Delete an example by id
+  // Delete a favorite by id
   app.delete("/api/favorites/:id", (req, res) => {
     db.Favorite.destroy({ where: { id: req.params.id } }).then(dbFavs => {
       res.json(dbFavs);
     });
   });
+
+
+  //MY RECIPES ROUTES
+  // Get all examples
+  app.get("/api/examples", isAuthenticated, (req, res) => {
+    db.Example.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(dbExamples => {
+      res.json(dbExamples);
+    });
+  });
+
+  // Create a new example
+  app.post("/api/examples", isAuthenticated, (req, res) => {
+    db.Example.create({
+      UserId: req.user.id,
+      title: req.body.title,
+      directions: req.body.directions
+    }).then(dbExample => {
+      res.json(dbExample);
+    });
+  });
+
+  // Delete an example by id
+  app.delete("/api/examples/:id", (req, res) => {
+    db.Example.destroy({ where: { id: req.params.id } }).then(dbExample => {
+      res.json(dbExample);
+    });
+  });
+  // Update an example by id
+  app.put("/api/examples", function(req, res) {
+    db.Post.update(req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
+
 
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -136,47 +174,5 @@ module.exports = app => {
   })
 
 
-
-  // ************** Here we will connect the .get and .post **************
-  // app.get("/api/favorites", isAuthenticated, (req, res) => {
-  //   db.Favorite.findAll({
-  //     where: {
-  //       UserId: req.user.id
-  //     }
-  //       .then(dbFavorite => {
-  //         $("#bob").text(res.json(dbFavorite));
-  //       })
-  //   });
-
-  // ************** Here we will connect the .get and .post **************
-  // app.get("/api/favorites", isAuthenticated, (req, res) => {
-  //   db.Favorite
-  //   .findAll({})
-  //   .then((dbFavorite) => {
-  //     // res.render("profile", {favorite: dbFavorite});
-  //     res.json(dbFavorite)
-  //   });
-  // });
-
-  // app.get("/api/examples", isAuthenticated, (req, res) => {
-  //   db.Example.findAll({
-  //     where: {
-  //       UserId: req.user.id
-  //     }
-  //   }).then(dbExamples => {
-  //     res.json(dbExamples);
-  //   });
-  // });
-
-
-  // POST to create a new recipe
-  //connects to module favorite.js and keep keys identical
-//   app.post("/api/favorites", (req, res) => {
-//     db.Favorite
-//       .create({
-//         title: req.body.title,
-//         UserId: req.user.id
-//       }).then(data => res.json(data));
-//   });
 
  };
