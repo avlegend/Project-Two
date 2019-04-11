@@ -1,19 +1,15 @@
 <div class="grub-page">
 <div class="container-fluid rounded" id="grubPage">
   <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <img
-        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/08aea422-eab9-428b-82c9-9c04e411bb8c/dan2fta-512882e1-ad4a-4c23-9194-8ea14e276e22.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA4YWVhNDIyLWVhYjktNDI4Yi04MmM5LTljMDRlNDExYmI4Y1wvZGFuMmZ0YS01MTI4ODJlMS1hZDRhLTRjMjMtOTE5NC04ZWExNGUyNzZlMjIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Wl_zyJACEcfwgOMw73XlhwNiLSUkx62U8kWvtZKV0Sg"
-        width="200px">
-      <h3>Let's see if Mr. Grub can help you:</h3>
+    <div class="col-md-6">
+      <h3>Let's see if Mr. Grubs can help you:</h3>
       <form id="houndSearch">
         <div class="input-group">
           {{!-- <label for="searchRecipe">Search Recipe</label> --}}
           <input type="input" class="form-control" id="hound-search-input"
             placeholder="How many calories does an orange have">
           <span class="input-group-btn">
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="btn">Grub It</button>
           </span>
         </div>
       </form>
@@ -22,9 +18,10 @@
   </div>
 
   <!-- Search Form -->
-
+  <br>
+  <br>
    <h3>If he can't help you, ask his friend Google:</h3>
-  <form id="labnol" method="get" action="https://www.google.com/search">
+  <form id="labnol" method="get" action="https://www.google.com/search" target="_blank">
     <div class="speech">
       <input type="text" name="q" id="transcript" placeholder="Speak" />
       <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
@@ -38,7 +35,6 @@
   <!-- CSS Styles -->
   <style>
     .speech {
-      border: 1px solid #DDD;
       width: 300px;
       padding: 0;
       margin: 0
@@ -48,12 +44,18 @@
       border: 0;
       width: 240px;
       display: inline-block;
-      height: 30px;
+      height: 33px;
+      border-radius: 5px
     }
 
     .speech img {
-      float: right;
-      width: 40px
+      height: 33px;
+      background: #FCD949;
+      border-radius: 5px
+
+    }
+    .speech img:hover {
+      background:#1B4118;
     }
   </style>
 
