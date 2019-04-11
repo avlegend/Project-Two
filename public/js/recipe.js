@@ -2,8 +2,6 @@ $(document).ready(function () {
   // Get references to page elements
   var $myRecipeTitle = $("#recipe-title");
   var $myRecipeText = $("#recipe-text");
-  // var $submitBtn = $("#submit");
-  // var $myRecipeList = $("#recipe-list");
 
   // The API object contains methods for each kind of request we'll make
   var API = {
@@ -51,34 +49,12 @@ $(document).ready(function () {
         var tableEntry = $("<td>").text(data[i].title).attr("class", "my-recipe" + i)
         var dataEntry = $("<td>").text(data[i].directions).attr("class", "myrecipeEntry")
         var deleteBtn = $("<td>").html("<button class='btn deleteMyRecipe' data-id=" + data[i].id + ">X</button>")
-        tableRow.append(tableIndex, tableEntry, dataEntry, deleteBtn)
+        var updateBtn = $("<td>").html("<button class='btn updateMyRecipe' data-id=" + data[i].id + ">+</button>")
+        tableRow.append(tableIndex, tableEntry, dataEntry, updateBtn, deleteBtn)
         $("#recipe-list").append(tableRow)
         $(".my-recipe" + i).wrap("<a href = '/example/" + data[i].id + "' class='my-recipe-link'></a>")
       }
-      // var $myRecipe = data.map(function(example) {
-      //   var $a = $("<a>")
-      //     .text(example.title)
-      //     .attr("href", "/example/" + example.id);
-
-      //   var $li = $("<li>")
-      //     .attr({
-      //       class: "list-group-item",
-      //       "data-id": example.id
-      //     })
-      //     .append($a);
-
-      //   var $button = $("<button>")
-      //     .addClass("btn btn-danger float-right delete")
-      //     .text("ｘ");
-
-      //   $li.append($button);
-
-      //   return $li;
-      // });
-
-      // $myRecipeList.empty();
-      // $myRecipeList.append($myRecipe);
-
+      
     });
   };
   refreshExamples();
@@ -90,6 +66,15 @@ $(document).ready(function () {
       title: $myRecipeTitle.val().trim(),
       directions: $myRecipeText.val().trim()
     };
+    // // If we're updating a post run updatePost to update a post
+    // // Otherwise run submitPost to create a whole new post
+    // if (updating) {
+    //   exampe.id = postId;
+    //   updatePost(newPost);
+    // }
+    // else {
+    //   submitPost(newPost);
+    // }
 
     if (!(example.title && example.directions)) {
       alert("You must enter an recipe title and directions!");
@@ -125,4 +110,21 @@ $(document).ready(function () {
     //console.log(recipeid)
     handleDeleteBtnClick(recipeid)
   });
+  $(document).on("click", ".updateMyRecipe", function () {
+    var recipeid = $(this).attr("data-id")
+    //console.log(recipeid)
+    updatePost(recipeid)
+  });
+
+  function updatePost(post) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/examples",
+      data: post
+    })
+      .then(function() {
+        window.location.href = "/example";
+      });
+  }
+
 })

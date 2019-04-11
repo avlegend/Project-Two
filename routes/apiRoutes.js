@@ -67,6 +67,18 @@ module.exports = app => {
       res.json(dbExample);
     });
   });
+  // Update an example by id
+  app.put("/api/examples", function(req, res) {
+    db.Post.update(req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
 
 
   // Using the passport.authenticate middleware with our local strategy.
@@ -162,47 +174,5 @@ module.exports = app => {
   })
 
 
-
-  // ************** Here we will connect the .get and .post **************
-  // app.get("/api/favorites", isAuthenticated, (req, res) => {
-  //   db.Favorite.findAll({
-  //     where: {
-  //       UserId: req.user.id
-  //     }
-  //       .then(dbFavorite => {
-  //         $("#bob").text(res.json(dbFavorite));
-  //       })
-  //   });
-
-  // ************** Here we will connect the .get and .post **************
-  // app.get("/api/favorites", isAuthenticated, (req, res) => {
-  //   db.Favorite
-  //   .findAll({})
-  //   .then((dbFavorite) => {
-  //     // res.render("profile", {favorite: dbFavorite});
-  //     res.json(dbFavorite)
-  //   });
-  // });
-
-  // app.get("/api/examples", isAuthenticated, (req, res) => {
-  //   db.Example.findAll({
-  //     where: {
-  //       UserId: req.user.id
-  //     }
-  //   }).then(dbExamples => {
-  //     res.json(dbExamples);
-  //   });
-  // });
-
-
-  // POST to create a new recipe
-  //connects to module favorite.js and keep keys identical
-//   app.post("/api/favorites", (req, res) => {
-//     db.Favorite
-//       .create({
-//         title: req.body.title,
-//         UserId: req.user.id
-//       }).then(data => res.json(data));
-//   });
 
  };
