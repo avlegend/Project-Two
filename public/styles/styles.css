@@ -68,10 +68,7 @@ body{
   background-color: #1B4118 ;
 }
 
-
-
-
-
+/*Footer*/
 footer {
   height: 50px; 
   max-height: 50px;
@@ -122,4 +119,17 @@ footer {
 }
 .easy-autocomplete-container .eac-item {
   color: #000;
+}
+/*My Recipes Page*/
+.myrecipe-page{
+  min-height: 100%;
+  margin-bottom: -50px;
+  padding-bottom: 100px;
+}
+
+/*Grub page*/
+.grub-page {
+  min-height: 100%;
+  margin-bottom: -50px;
+  padding-bottom: 100px;
 }

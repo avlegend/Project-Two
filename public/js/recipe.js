@@ -1,93 +1,99 @@
-// $(document).ready(function () {
-//     // recipeContainer holds all of our posts
-//     //let recipeContainer = $(".heart");
+// Get references to page elements
+var $myRecipeTitle = $("#recipe-title");
+var $myRecipeText = $("#recipe-text");
+var $submitBtn = $("#submit");
+var $myRecipeList = $("#recipe-list");
 
-//     //postCategorySelect.on("change", handleCategoryChange);
-//     //var posts;
+// The API object contains methods for each kind of request we'll make
+var API = {
+  saveExample: function(example) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/examples",
+      data: JSON.stringify(example)
+    });
+  },
+  getExamples: function() {
+    return $.ajax({
+      url: "api/examples",
+      type: "GET"
+    });
+  },
+  deleteExample: function(id) {
+    return $.ajax({
+      url: "api/examples/" + id,
+      type: "DELETE"
+    });
+  }
+};
 
-//     // this will save recipe on click function
+// refreshExamples gets new examples from the db and repopulates the list
+var refreshExamples = function() {
+  API.getExamples().then(function(data) {
+    var $myRecipe = data.map(function(example) {
+      var $a = $("<a>")
+        .text(example.title)
+        .attr("href", "/example/" + example.id);
 
-//     $(document).on("click", ".heart", saveRecipe);
+      var $li = $("<li>")
+        .attr({
+          class: "list-group-item",
+          "data-id": example.id
+        })
+        .append($a);
 
-//     let favContainer = $(".fav-container");
-//     let posts;
-//     // This function grabs posts from the database and updates the view
+      var $button = $("<button>")
+        .addClass("btn btn-danger float-right delete")
+        .text("ｘ");
 
-//     function saveRecipe() {
-//         // event.preventDefault();
-//         //alert("Ive been clicked!")
-//         const newRecipe = ({
-//             title: $(this).attr("data-title"),
-//             UserId: 20
-//         })
-//         $.post("/api/favorites", newRecipe, function (data) {
-//             console.log(data.title);
-//             //console.log("post data route")
-//         })
-    //     // console.log(newRecipe);
-    
-    //  };
-     
-    
-     
-    
-//     // function getFavorite(andres) {
-//     //     $.get("/api/favorites" + andres, function (data) {
-//     //         console.log("favorites");
-//     //         posts = data.title;
-//     //         // if (!posts || !posts.length) {
-//     //         //     displayEmpty();
-//     //         // }
-//     //         // else {
-//     //         //     initializeRows();
-//     //         // }
-//     //         initializeRows()
-//     //     });
-//     // };
+      $li.append($button);
 
-//     // getFavorite();
+      return $li;
+    });
 
-//     // function initializeRows() {
-//     //     favContainer.empty();
-//     //     var postsToAdd = [];
-//     //     for (var i = 0; i < 5; i++) {
-//     //         postsToAdd.push(createNewRow(posts));
-//     //         console.log(posts)
-//     //     }
+    $myRecipeList.empty();
+    $myRecipeList.append($myRecipe);
+  });
+};
+refreshExamples();
+// handleFormSubmit is called whenever we submit a new example
+// Save the new example to the db and refresh the list
+var handleFormSubmit = function(event) {
+  event.preventDefault();
 
-//     //     //console.log(posts) = this is giving up an html page
-//     //     console.log("this is the post part")
-//     //     favContainer.append(postsToAdd);
-//     // }
+  var example = {
+    title: $myRecipeTitle.val().trim(),
+    directions: $myRecipeText.val().trim()
+  };
 
-//     // function createNewRow(post) {
-//     //     var newFav = $("<div>");
-//     //     var deleteBtn = $("<button>");
-//     //     deleteBtn.text("x");
-//     //     deleteBtn.addClass("delete btn btn-danger");
-//     //     var newPostTitle = $("<h2>");
-//     //     newPostTitle.text(post + " ");
-//     //     newFav.append(deleteBtn, newPostTitle)
-//     //     return newFav;
-//     // }
+  if (!(example.title && example.directions)) {
+    alert("You must enter an recipe title and directions!");
+    return;
+  }
 
-//     // function displayEmpty() {
-//     //     favContainer.empty();
-//     //     var messageH2 = $("<h2>");
-//     //     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-//     //     messageH2.html("No posts yet for this category, navigate <a href='/cms'>here</a> in order to create a new post.");
-//     //     favContainer.append(messageH2);
-//     // }
+  API.saveExample(example).then(function() {
+    refreshExamples();
+  });
 
-//     // A function for creating an favorite recipe. Calls getRecipe upon completion
-//     // function upsertRecipe(recipeData) {
-//     //     $.post("/api/recipe", recipeData)
-//     //         .then(getRecipe);
-//     // };
+  $myRecipeTitle.val("");
+  $myRecipeText.val("");
+};
 
-//     // Function for Creating a new list row for recipe faviorited
-//     // function createRecipeRow(recipeData) {
-//     //     let newTr = $("<tr>");
-//     //     newTr.data("recipe")
-//     // }
-// });
+// handleDeleteBtnClick is called when an example's delete button is clicked
+// Remove the example from the db and refresh the list
+var handleDeleteBtnClick = function() {
+  var idToDelete = $(this)
+    .parent()
+    .attr("data-id");
+
+  API.deleteExample(idToDelete).then(function() {
+    refreshExamples();
+  });
+};
+
+// Add event listeners to the submit and delete buttons
+$submitBtn.on("click", handleFormSubmit);
+$myRecipeList.on("click", ".delete", handleDeleteBtnClick);
