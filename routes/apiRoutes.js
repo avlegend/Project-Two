@@ -68,11 +68,11 @@ module.exports = app => {
     });
   });
   // Update an example by id
-  app.put("/api/examples", function(req, res) {
-    db.Post.update(req.body,
+  app.put("/api/examples/:id", function(req, res) {
+    db.Example.update(req.body,
       {
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       })
       .then(function(dbPost) {

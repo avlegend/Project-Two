@@ -138,13 +138,17 @@ footer {
   max-width: 280px; 
   overflow: hidden;
   text-overflow: ellipsis;
-  color: red
 }
 /*Grub page*/
 .grub-page {
   min-height: 100%;
   margin-bottom: -50px;
   padding-bottom: 100px;
+  padding-top: 40px;
+  background: url("https://66a5c94f881e00721b04-16146648069df66cb23bbc3aabf47a61.ssl.cf1.rackcdn.com/Adams-food-photography-BoarsHeadHamSalad.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
 }
 .myrecipeResult{
   min-height: 100%;

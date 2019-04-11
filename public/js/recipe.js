@@ -2,7 +2,7 @@ $(document).ready(function () {
   // Get references to page elements
   var $myRecipeTitle = $("#recipe-title");
   var $myRecipeText = $("#recipe-text");
-
+  var newrecipe = []
   // The API object contains methods for each kind of request we'll make
   var API = {
     saveExample: function (example) {
@@ -54,7 +54,7 @@ $(document).ready(function () {
         $("#recipe-list").append(tableRow)
         $(".my-recipe" + i).wrap("<a href = '/example/" + data[i].id + "' class='my-recipe-link'></a>")
       }
-      
+
     });
   };
   refreshExamples();
@@ -110,21 +110,38 @@ $(document).ready(function () {
     //console.log(recipeid)
     handleDeleteBtnClick(recipeid)
   });
-  $(document).on("click", ".updateMyRecipe", function () {
+  $(document).on("click", ".updateMyRecipe", function (event) {
+    event.preventDefault()
     var recipeid = $(this).attr("data-id")
-    //console.log(recipeid)
-    updatePost(recipeid)
-  });
-
-  function updatePost(post) {
+    console.log(recipeid)
+    if ($myRecipeTitle.val().trim() === "" && $myRecipeText.val().trim()==="") {
+      alert("You must enter your modifications first!");
+      return;
+    }
     $.ajax({
       method: "PUT",
-      url: "/api/examples",
-      data: post
+      url: `/api/examples/` + recipeid,
+      data: {
+        title: $myRecipeTitle.val().trim(),
+        directions: $myRecipeText.val().trim()
+      }
     })
-      .then(function() {
-        window.location.href = "/example";
-      });
-  }
+      .then(function (example) {
+        console.log(example)
+        refreshExamples()
+        //window.location.href = "/example";
+      })
+  });
+
+  // function updatePost() {
+  //   $.ajax({
+  //     method: "PUT",
+  //     url: "/api/examples/:id",
+  //     data: 
+  //   })
+  //     .then(function() {
+  //       window.location.href = "/example";
+  //     });
+  // }
 
 })
